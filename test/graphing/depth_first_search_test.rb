@@ -16,13 +16,13 @@ class DepthFirstSearchTest < Minitest::Test
   end
 
   def test_topological_sort
-    graph = get_test_graph
+    graph = get_test_graph(true)
     dfs = DepthFirstSearch.new(graph)
     assert_equal dfs.topological_sort.map(&:name), ["1", "2", "3", "4", "5", "6"]
   end
 
-  def get_test_graph
-    graph = Graph.new
+  def get_test_graph(directed = false)
+    graph = Graph.new(directed)
     graph.add_edge(Vertex.new("1"), Vertex.new("2"))
     graph.add_edge(Vertex.new("2"), Vertex.new("3"))
     graph.add_edge(Vertex.new("3"), Vertex.new("4"))
