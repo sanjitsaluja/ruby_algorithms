@@ -18,10 +18,10 @@ class BreadthFirstSearchTest < Minitest::Test
     bfs.bfs do |i|
       explored << i.name
     end
-    assert explored, ["1", "2", "3", "4", "5", "6"]
+    assert_equal explored, ["1", "2", "3", "4", "5", "6"]
 
     path = bfs.shortest_path(Vertex.new("6"))
-    assert path.map { |x| x.name }, ["1", "2", "3", "4"]
+    assert_equal path.map { |x| x.name }, ["1", "2", "3", "4"]
   end
 
 end

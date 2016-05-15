@@ -4,7 +4,6 @@ module RubyAlgorithms
       def initialize(graph, start)
         @graph = graph
         @start = start
-        @visited = {}
         @parent = {@start => nil}
       end
 
@@ -18,17 +17,16 @@ module RubyAlgorithms
       end
 
       def bfs
+        # TODO: Replace queue with a real O(N) queue
         queue = [@start]
-
         while queue.length > 0
           current = queue.shift
-          @visited[current] = true
           if block_given?
             yield(current)
           end
           @graph.adjacency_list[current].each do |adjacent|
-            @parent[adjacent] ||= current
-            unless @visited[adjacent]
+            unless @parent[adjacent]
+              @parent[adjacent] = current
               queue.push(adjacent)
             end
           end
