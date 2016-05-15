@@ -1,5 +1,7 @@
 # RubyAlgorithms
 
+[![CircleCI](https://circleci.com/gh/sanjitsaluja/ruby_algorithms.svg?style=svg)](https://circleci.com/gh/sanjitsaluja/ruby_algorithms)
+
 Just implementation of some classic algorithms in Ruby.
 
 ## Installation
