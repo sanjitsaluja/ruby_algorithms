@@ -28,7 +28,7 @@ module RubyAlgorithms
         while node
           node.update_height
           if height(node.left) > height(node.right) + 1
-            p "Node #{node.key} is unb #{height(node.left)} > #{height(node.right)}"
+            # p "Node #{node.key} is unb #{height(node.left)} > #{height(node.right)}"
             if height(node.left.left) < height(node.left.right)
               rotate_left(node.left)
               rotate_right(node)
@@ -36,7 +36,7 @@ module RubyAlgorithms
               rotate_right(node)
             end
           elsif height(node.right) > height(node.left) + 1
-            p "Node #{node.key} is unb #{height(node.left)} < #{height(node.right)}"
+            # p "Node #{node.key} is unb #{height(node.left)} < #{height(node.right)}"
             if height(node.right.right) < height(node.right.left)
               rotate_right(node.right)
               rotate_left(node)
@@ -54,7 +54,7 @@ module RubyAlgorithms
 
 
       def rotate_right(x)
-        p "rotate_right#{x.key}"
+        # p "rotate_right#{x.key}"
         y = x.left
         y.parent = x.parent
         if y.parent.nil? # or x == self.root
@@ -76,7 +76,7 @@ module RubyAlgorithms
       end
 
       def rotate_left(x)
-        p "rotate_left#{x.key}"
+        # p "rotate_left#{x.key}"
         y = x.right
         y.parent = x.parent
         if y.parent.nil? # or x == self.root
