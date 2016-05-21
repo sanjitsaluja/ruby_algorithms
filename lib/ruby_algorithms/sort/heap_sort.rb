@@ -28,11 +28,41 @@ module RubyAlgorithms
     end
 
     class Heap
-      def initialize(array)
+      def initialize(array = [])
         @array = array || []
         (@array.length/2).downto(0) do |x|
           heapify(x)
         end
+      end
+
+      def insert(item)
+        array << item
+        i = array.length - 1
+        while i > 0 && array[parent(i)] > array[i]
+          array[parent(i)], array[i] = array[i], array[parent(i)]
+          i = parent(i)
+        end
+        test_heap_invariant
+      end
+
+      def parent(i)
+        (i - 1)/2
+      end
+
+      def test_heap_invariant
+        test_heap(0)
+      end
+
+      def test_heap(x)
+        if x >= array.length
+          return
+        end
+        l = 2 * x + 1
+        r = 2 * x + 2
+        raise if l < array.length - 1 && array[x] > array[l]
+        raise if r < array.length - 1 && array[x] > array[r]
+        test_heap(l)
+        test_heap(r)
       end
 
       def extract_min
@@ -45,6 +75,7 @@ module RubyAlgorithms
           end
           min
         end
+        test_heap_invariant
       end
 
       def size

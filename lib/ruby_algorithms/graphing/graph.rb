@@ -14,6 +14,11 @@ module RubyAlgorithms
             o.node_end == node_end &&
             o.directed == directed
       end
+
+      def <=>(o)
+        weight <=> o.weight
+      end
+
     end
 
     class Vertex
@@ -51,6 +56,12 @@ module RubyAlgorithms
         @directed = directed
       end
 
+      def edges(node_start)
+        @adjancency_list[node_start].map do |node_end|
+          new_edge(node_start, node_end)
+        end
+      end
+
       def all_edges
         edges = []
         @adjacency_list.each do |node_start, list|
@@ -65,6 +76,16 @@ module RubyAlgorithms
           end
         end
         Set.new(edges)
+      end
+
+      def new_edge(node_start, node_end)
+        weight = @weights[[node_start, node_end]]
+        edge = Edge.new
+        edge.node_start = node_start
+        edge.node_end = node_end
+        edge.directed = @directed
+        edge.weight = weight
+        edge
       end
 
       def add_edge(node_start, node_end, weight = 0)
