@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/sanjitsaluja/ruby_algorithms.svg?style=svg)](https://circleci.com/gh/sanjitsaluja/ruby_algorithms)
 
-Just implementation of some classic algorithms in Ruby.
+Implementation of some classic algorithms in Ruby.
 
 ## Installation
 
@@ -20,9 +20,12 @@ Or install it yourself as:
 
     $ gem install ruby_algorithms
 
-## Usage
+## Tests
 
-TODO: Write usage instructions here
+To execute all tests
+
+    $ rake test
+
 
 ## Development
 
@@ -32,5 +35,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby_algorithms. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sanjitsaluja/ruby_algorithms. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
